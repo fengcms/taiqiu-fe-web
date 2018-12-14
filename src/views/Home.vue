@@ -1,22 +1,25 @@
 <template>
   <div class="home">
-    this is home page
+    <myHeader></myHeader>
   </div>
 </template>
 
 <script>
+import myHeader from '@/coms/myHeader.vue'
 export default {
-  components: {},
+  components: { myHeader },
   data () {
     return {
     }
   },
   created () {
-    this.getData()
+    // this.getData()
   },
   methods: {
     getData () {
-      console.log(this.$api)
+      this.$api.get('catalog', null, r => {
+        console.log(r)
+      })
       console.log('get data')
     }
   }
