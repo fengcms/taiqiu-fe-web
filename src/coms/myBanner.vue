@@ -1,7 +1,12 @@
 <template>
-  <carousel :perPage="1" class="banner" autoplay loop>
+  <carousel
+    :perPage="1" class="banner"
+    autoplay loop
+    paginationActiveColor="rgba(255,255,255,1)" paginationColor="rgba(255,255,255,.5)"
+    :paginationPadding="5"
+    >
     <slide v-for="(i, k) in banner" :key="k">
-      <div class="banner_item" :style="`background-color: ${i.bgColor};background-image:url(${i.bgImg})`"></div>
+      <div class="banner_item" :style="`background-color: ${i.color};background-image:url(${i.url})`"></div>
     </slide>
   </carousel>
 </template>
@@ -9,24 +14,17 @@
 export default {
   data () {
     return {
-      banner: [
-        { bgColor: '#f60', bgImg: null },
-        { bgColor: '#f90', bgImg: null },
-        { bgColor: '#ff0', bgImg: null },
-        { bgColor: '#fc0', bgImg: null },
-        { bgColor: '#fa0', bgImg: null }
-      ]
+      banner: []
     }
   },
   created () {
-    // this.getData()
+    this.getData()
   },
   methods: {
     getData () {
-      this.$api.get('catalog', null, r => {
-        console.log(r)
+      this.$api.get('banner', null, r => {
+        this.banner = r.data.list
       })
-      console.log('get data')
     }
   }
 }

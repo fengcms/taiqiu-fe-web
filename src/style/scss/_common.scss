@@ -1,0 +1,10 @@
+.subtitle {
+  @extend .web_;
+  text-align: center;
+  h2 {
+    font-size: 32px;color: $c22;
+  }
+  p {
+    font-size: 16px;color: $c99;
+  }
+}
