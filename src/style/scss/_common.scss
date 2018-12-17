@@ -1,8 +1,9 @@
 .subtitle {
   @extend .web_;
   text-align: center;
+  padding: 50px 0 30px;
   h2 {
-    font-size: 32px;color: $c22;
+    font-size: 32px;color: $c22;padding-bottom: 20px;
   }
   p {
     font-size: 16px;color: $c99;
